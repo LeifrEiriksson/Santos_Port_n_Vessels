@@ -3,7 +3,7 @@
 
 # Introduction
 
-The objective of this project is to collect and store data on ship movements at the Port of Santos and weather forecasts for the region. The data collection is done through two main sources:
+The objective of this project is to collect and store data on ship movements at the Port of Santos and weather forecasts for the region. The data collection is performed using two main sources:
 
 Ship Movements: Web scraping is used to extract detailed information from the official Port of Santos website. This data includes information about ship arrivals, their status (docked, anchored, etc.), and other operational details. The extraction is performed using the BeautifulSoup library.
 
@@ -11,6 +11,10 @@ Weather Data: Weather forecasts are collected through the OpenMeteo API, with th
 
 ## Data Storage
 
-For storing the collected data, DuckDB has been chosen. DuckDB is a database solution that, while more geared towards OLAP projects, offers good performance for the current data volume and allows efficient processing of the **raw** data layer. The choice of DuckDB is motivated by its versatility, efficiency, and high availability for data science and analytics teams.
+For storing the collected data, two database solutions have been chosen:
 
-Although the data volume is not large at the moment, the project is structured to allow future scalability if the data processing needs grow significantly. If necessary, the infrastructure can be scaled to more robust databases like PostgreSQL.
+* SQLite: Used for the bronze layer, which stores raw data. This layer acts as a repository for unprocessed data, ensuring simplicity and efficiency for initial storage.
+
+* DuckDB: Designed for the silver and gold layers, which handle processed and refined data. DuckDB's focus on OLAP workloads makes it ideal for supporting the analytical needs of the project. Its versatility, simplicity, and high efficiency make it an excellent choice for data science and analytics teams.
+
+Although the current data volume is manageable with these solutions, the project is structured with scalability in mind. If the data volume grows significantly, the infrastructure can be adapted to more robust databases, such as PostgreSQL.
