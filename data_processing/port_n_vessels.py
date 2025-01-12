@@ -1,6 +1,5 @@
 import requests
 import pandas as pd
-import pandas as pd
 import httpx
 from bs4 import BeautifulSoup
 
