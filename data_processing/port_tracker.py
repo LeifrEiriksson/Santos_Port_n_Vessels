@@ -73,7 +73,8 @@ def inport():
             GRT = columns[3].get_text()
 
             Built =  None if columns[4].get_text() == '---' else int(columns[4].get_text())
-            Size = None if int(columns[5].get_text()[:-2]) == 0 else int(columns[5].get_text()[:-2])
+            Size = None if (columns[5].get_text() == '---' or int(columns[5].get_text()[:-2]) == 0) else int(columns[5].get_text()[:-2])
+
 
             tuple_values = (ship_name, mmsi, imo, row_arrived, DWT, GRT, Built, Size)
             dict_columns = {}
