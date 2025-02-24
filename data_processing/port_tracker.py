@@ -88,4 +88,18 @@ def inport():
 
                     df = pd.concat([df, pd.DataFrame([dict_columns])], axis = 0, ignore_index=True) 
     
+    #------------------------------------------------------------------------#
+
+    df["DWT"] = df["DWT"].replace(r'---', None)
+    df["DWT"] = df["DWT"].str.replace(r',', '')
+    df["DWT_Unit"] = df["DWT"].str.split().str[1]
+    df["DWT"] = df["DWT"].str.split().str[0]
+
+    #------------------------------------------------------------------------#
+
+    df["GRT"] = df["GRT"].replace(r'---', None)
+    df["GRT"] = df["GRT"].str.replace(r',', '')
+    df["GRT_Unit"] = df['GRT'].str.split().str[1]
+    df["GRT"] = df["GRT"].str.split().str[0]
+
     return df

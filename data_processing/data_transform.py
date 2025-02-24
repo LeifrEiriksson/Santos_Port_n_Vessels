@@ -1,4 +1,4 @@
-from data_processing.scrapers_check import *
+from data_processing.scrapers_center import *
 import pandas as pd
 from datetime import datetime
 
